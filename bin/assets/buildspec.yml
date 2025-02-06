@@ -1,0 +1,23 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-version:
+      python: 3.11
+    commands:
+      - echo Entered the install phase...
+      - pip install pipenv
+      - pipenv install
+    finally:
+      - echo This always runs even if the update or install command fails
+  build:
+    commands:
+      - echo Entered the build the phae lamo
+      - echo Build started on `data`
+      - pipenv run python -m unittest
+    finally:
+      - echo This always runs even if the install command fails
+  post_build:
+    commands:
+      - echo Entered the post_build phase yup
+      - echo Build completed on `date`
